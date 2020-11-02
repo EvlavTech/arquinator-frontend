@@ -1,1 +1,1 @@
-# Arquinator - Frontend
+# ARQuinator - Frontend
