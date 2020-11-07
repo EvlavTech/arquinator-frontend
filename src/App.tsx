@@ -1,7 +1,10 @@
 import React from 'react';
+import Router from './Router';
+
+import './global.scss';
 
 function App(): React.FunctionComponentElement<void> {
-  return <h1>Hello World</h1>;
+  return <Router />;
 }
 
 export default App;
