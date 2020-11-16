@@ -3,10 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './style.scss';
-import logo from '../../assets/EVLAV.svg';
+import logo from 'assets/EVLAV.svg';
 
 function Login(): React.FunctionComponentElement<void> {
-  // todo form submit
+  // TODO: form submit
   return (
     <div className="background">
       <div className="content">

@@ -1,0 +1,87 @@
+$main-text-color: #6d6d6d;
+
+@mixin defaultHover {
+  &:hover {
+    color: #9d9d9d;
+    cursor: pointer;
+
+    -webkit-transition: color 0.3s ease-out;
+    -moz-transition: color 0.3s ease-out;
+    -o-transition: color 0.3s ease-out;
+    transition: color 0.3s ease-out;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+}
+
+.company_logo_container {
+  margin: 10px 25px;
+}
+
+.company_logo {
+  height: 60px;
+}
+
+.buttons {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.avatar {
+  width: 40px;
+  margin: 0 10px;
+}
+
+.profile_name {
+  color: $main-text-color;
+  transform: perspective(1px);
+
+  @include defaultHover();
+
+  &:hover:before {
+    left: 0;
+    right: 0;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    background: #9d9d9d;
+    height: 1px;
+    transition-property: left, right;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+}
+
+.profile_options {
+  color: $main-text-color;
+  font-size: 12px;
+  margin-left: 5px;
+
+  @include defaultHover();
+}
+
+.logout {
+  font-size: 28px;
+  color: $main-text-color;
+
+  @include defaultHover();
+}
