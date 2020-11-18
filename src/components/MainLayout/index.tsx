@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AiOutlineMenuUnfold } from 'react-icons/ai';
 
 import Header from 'components/Header';
-import SideBar from 'components/SideBar';
+import SideBar from 'components/Sidebar';
 
 import styles from './MainLayout.module.scss';
 
 const MainLayout: React.FC = ({ children }) => {
-  // TODO: responsive sidebar
+  const [visibleSidebar, setVisibleSidebar] = useState(false);
+
+  const showSidebar = () => setVisibleSidebar(!visibleSidebar);
+
   return (
     <div className={styles.container}>
-      <aside>
-        <SideBar />
+      <aside className={visibleSidebar ? styles.sidebarActive : styles.sidebar}>
+        <SideBar showSidebar={showSidebar} />
       </aside>
       <main>
-        <Header />
+        <Header showSidebar={showSidebar} />
         {children}
       </main>
     </div>

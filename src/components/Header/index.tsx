@@ -1,15 +1,27 @@
 import React from 'react';
-import { AiFillCaretDown, AiOutlineLogout } from 'react-icons/ai';
+import {
+  AiFillCaretDown,
+  AiOutlineLogout,
+  AiOutlineMenuUnfold,
+} from 'react-icons/ai';
 
 import companyLogo from 'assets/space-cube.svg';
 import avatar from 'assets/default-avatar.jpg';
 
 import styles from './Header.module.scss';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  showSidebar(): void;
+}
+
+const Header: React.FC<HeaderProps> = ({ showSidebar }) => {
   return (
     <header className={styles.header}>
       <section className={styles.company_logo_container}>
+        <AiOutlineMenuUnfold
+          className={styles.sidebar_icon}
+          onClick={() => showSidebar()}
+        />
         <img
           src={companyLogo}
           alt="Company Logo"

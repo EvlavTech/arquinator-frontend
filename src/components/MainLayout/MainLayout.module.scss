@@ -1,3 +1,10 @@
+@mixin sideBarProperties {
+  background-color: #fefefe;
+  height: 100vh;
+  width: 100%;
+  max-width: 260px;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -5,13 +12,28 @@
   min-height: 100vh;
 }
 
-aside {
-  background-color: #fefefe;
-  height: 100vh;
-  width: 100%;
-  max-width: 260px;
+.sidebar {
+  @include sideBarProperties();
 }
 
 main {
   flex: 1;
+}
+
+@media(max-width: 670px){
+  .sidebar {
+    @include sideBarProperties();
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: 500ms;
+  }
+
+  .sidebarActive {
+    @include sideBarProperties();
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 500ms;
+  }
 }

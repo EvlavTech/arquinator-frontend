@@ -20,11 +20,15 @@ $main-text-color: #6d6d6d;
 }
 
 .company_logo_container {
-  margin: 10px 25px;
+  margin: 10px 0px;
+  padding-left: 25px;
+  display: flex;
+  align-items: center;
 }
 
 .company_logo {
   height: 60px;
+  margin: 10px;
 }
 
 .buttons {
@@ -84,4 +88,18 @@ $main-text-color: #6d6d6d;
   color: $main-text-color;
 
   @include defaultHover();
+}
+
+.sidebar_icon {
+  font-size: 28px;
+  color: $main-text-color;
+  display: none;
+
+  @include defaultHover();
+}
+
+@media(max-width: 670px) {
+  .sidebar_icon{
+    display: inline;
+  }
 }
