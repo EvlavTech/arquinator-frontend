@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -12,11 +11,11 @@ function Login(): React.FunctionComponentElement<void> {
       <div className="content">
         <form className="login">
           <img src={logo} alt="logo" />
-          <label>
+          <label htmlFor="email">
             Email:
-            <input type="text" />
+            <input type="email" />
           </label>
-          <label>
+          <label htmlFor="password">
             Senha:
             <input type="password" />
           </label>
