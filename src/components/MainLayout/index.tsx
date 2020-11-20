@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { AiOutlineMenuUnfold } from 'react-icons/ai';
 
 import Header from 'components/Header';
 import SideBar from 'components/Sidebar';
