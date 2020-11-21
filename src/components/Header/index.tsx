@@ -31,10 +31,12 @@ const Header: React.FC<HeaderProps> = ({ showSidebar }) => {
       <section className={styles.buttons}>
         <section className={styles.profile}>
           <img src={avatar} alt="Avatar" className={styles.avatar} />
-          <span className={styles.profile_name}>Matheus Santana</span>
-          <AiFillCaretDown className={styles.profile_options} />
+          <span className={styles.profile_name}>
+            Matheus Alcantara de Santana
+          </span>
+          <AiFillCaretDown className={styles.profile_options} size={12} />
         </section>
-        <AiOutlineLogout className={styles.logout} />
+        <AiOutlineLogout className={styles.logout} size={28} />
       </section>
     </header>
   );

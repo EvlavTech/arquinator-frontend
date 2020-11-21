@@ -20,17 +20,15 @@ main {
   flex: 1;
 }
 
-@media(max-width: 670px){
+@media(max-width: 690px){
   .sidebar {
-    @include sideBarProperties();
     position: fixed;
     top: 0;
     left: -100%;
     transition: 500ms;
   }
 
-  .sidebarActive {
-    @include sideBarProperties();
+  .sidebar.active {
     position: fixed;
     top: 0;
     left: 0;

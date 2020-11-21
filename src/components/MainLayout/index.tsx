@@ -12,7 +12,11 @@ const MainLayout: React.FC = ({ children }) => {
 
   return (
     <div className={styles.container}>
-      <aside className={visibleSidebar ? styles.sidebarActive : styles.sidebar}>
+      <aside
+        className={
+          visibleSidebar ? `${styles.sidebar} ${styles.active}` : styles.sidebar
+        }
+      >
         <SideBar showSidebar={showSidebar} />
       </aside>
       <main>
