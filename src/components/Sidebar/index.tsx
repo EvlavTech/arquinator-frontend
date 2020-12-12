@@ -9,6 +9,7 @@ import {
 
 import logo from 'assets/EVLAV.svg';
 
+import { Link } from 'react-router-dom';
 import styles from './SideBar.module.scss';
 
 interface SidebarProps {
@@ -26,19 +27,27 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar }) => {
       <img src={logo} alt="Logo" className={styles.logo} />
       <section className={styles.sidebar_item}>
         <AiFillHome className={styles.sidebar_item_icon} />
-        <span className="sidebar_item_title">Home</span>
+        <Link to="/home" className={styles.sidebar_item_title}>
+          Home
+        </Link>
       </section>
       <section className={styles.sidebar_item}>
         <AiFillFolder className={styles.sidebar_item_icon} />
-        <span className="sidebar_item_title">Projetos</span>
+        <Link to="/projects" className={styles.sidebar_item_title}>
+          Projetos
+        </Link>
       </section>
       <section className={styles.sidebar_item}>
         <AiFillDollarCircle className={styles.sidebar_item_icon} />
-        <span className="sidebar_item_title">Financeiro</span>
+        <Link to="/financial" className={styles.sidebar_item_title}>
+          Financeiro
+        </Link>
       </section>
       <section className={styles.sidebar_item}>
         <AiOutlineTeam className={styles.sidebar_item_icon} />
-        <span className="sidebar_item_title">Equipe</span>
+        <Link to="/team" className={styles.sidebar_item_title}>
+          Equipe
+        </Link>
       </section>
     </div>
   );

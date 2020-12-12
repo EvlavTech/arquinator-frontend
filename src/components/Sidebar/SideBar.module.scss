@@ -40,10 +40,12 @@
 }
 
 .sidebar_item_title {
-  font-size: 28px;
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
 }
 
-@media(max-width: 690px) {
+@media (max-width: 690px) {
   .closeSidebar {
     display: inline;
     align-self: flex-end;

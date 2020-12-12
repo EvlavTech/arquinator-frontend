@@ -3,12 +3,20 @@ import React, { useState } from 'react';
 import MainLayout from 'components/MainLayout';
 
 import { RiFilterFill } from 'react-icons/ri';
+
 import CardUser from 'components/CardUser';
+import { partition } from '../../utils';
 
 import './styles.scss';
 
+interface IUser {
+  username: string;
+  fotoUrl: string;
+  occupation: string;
+}
+
 const Home: React.FC = () => {
-  const [team, setTeam] = useState([
+  const [team, setTeam] = useState<IUser[]>([
     {
       username: 'Rich Elton',
       fotoUrl:
@@ -27,6 +35,9 @@ const Home: React.FC = () => {
       occupation: 'Estagiário',
     },
   ]);
+  const [teamPartition, setTeamPartition] = useState<Array<IUser[]>>(
+    partition(team, 2),
+  );
 
   return (
     <>
@@ -41,11 +52,11 @@ const Home: React.FC = () => {
           </div>
 
           <div className="users">
-            {team.map((user) => {
+            {teamPartition.map((array) => {
               return (
-                <div className="pair-users">
-                  <CardUser user={user} />
-                  <CardUser user={user} />
+                <div className="pair-users" key={array[0].username}>
+                  <CardUser user={array[0]} />
+                  {array.length === 2 ? <CardUser user={array[1]} /> : null}
                 </div>
               );
             })}
