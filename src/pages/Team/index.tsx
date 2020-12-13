@@ -14,7 +14,7 @@ interface IUser {
   occupation: string;
 }
 
-const Home: React.FC = () => {
+const Team: React.FC = () => {
   const [team] = useState<IUser[]>([
     {
       username: 'Rich Elton',
@@ -56,4 +56,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Team;

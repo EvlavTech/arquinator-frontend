@@ -1,4 +1,4 @@
-.user {
+.cardUser {
   display: flex;
   justify-content: space-between;
   background: #ffffff;
@@ -11,11 +11,11 @@
   cursor: pointer;
   margin: 30px;
 
-  div {
+  .user {
     display: flex;
     flex-direction: row;
 
-    .info-user {
+    .infoUser {
       display: flex;
       flex-direction: column;
 
@@ -43,7 +43,7 @@
     }
   }
 
-  .btn-perfil {
+  .btnPerfil {
     display: flex;
     align-items: center;
     text-decoration: none;

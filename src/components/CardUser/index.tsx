@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './styles.scss';
+import styles from './CardUser.module.scss';
 
 interface IUser {
   username: string;
@@ -11,17 +11,17 @@ interface IUser {
 
 const CardUser: React.FC<{ user: IUser }> = ({ user }) => {
   return (
-    <div className="user">
-      <div>
-        <div className="picture">
+    <div className={styles.cardUser}>
+      <div className={styles.user}>
+        <div className={styles.picture}>
           <img src={user.fotoUrl} alt="Profile" />
         </div>
-        <div className="info-user">
+        <div className={styles.infoUser}>
           <p>{user.username}</p>
-          <p className="occupation">{user.occupation}</p>
+          <p className={styles.occupation}>{user.occupation}</p>
         </div>
       </div>
-      <Link className="btn-perfil" to="/">
+      <Link className={styles.btnPerfil} to="/">
         Ver perfil
       </Link>
     </div>
