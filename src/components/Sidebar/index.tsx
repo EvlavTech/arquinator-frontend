@@ -33,19 +33,19 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar }) => {
       </section>
       <section className={styles.sidebar_item}>
         <AiFillFolder className={styles.sidebar_item_icon} />
-        <Link to="/projects" className={styles.sidebar_item_title}>
+        <Link to="/projetos" className={styles.sidebar_item_title}>
           Projetos
         </Link>
       </section>
       <section className={styles.sidebar_item}>
         <AiFillDollarCircle className={styles.sidebar_item_icon} />
-        <Link to="/financial" className={styles.sidebar_item_title}>
+        <Link to="/financeiro" className={styles.sidebar_item_title}>
           Financeiro
         </Link>
       </section>
       <section className={styles.sidebar_item}>
         <AiOutlineTeam className={styles.sidebar_item_icon} />
-        <Link to="/team" className={styles.sidebar_item_title}>
+        <Link to="/equipe" className={styles.sidebar_item_title}>
           Equipe
         </Link>
       </section>

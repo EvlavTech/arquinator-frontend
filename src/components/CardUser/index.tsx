@@ -5,7 +5,7 @@ import styles from './CardUser.module.scss';
 
 interface IUser {
   username: string;
-  fotoUrl: string;
+  avatar: string;
   occupation: string;
 }
 
@@ -14,7 +14,7 @@ const CardUser: React.FC<{ user: IUser }> = ({ user }) => {
     <div className={styles.cardUser}>
       <div className={styles.user}>
         <div className={styles.picture}>
-          <img src={user.fotoUrl} alt="Profile" />
+          <img src={user.avatar} alt="Profile" />
         </div>
         <div className={styles.infoUser}>
           <p>{user.username}</p>

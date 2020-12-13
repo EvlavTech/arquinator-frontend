@@ -12,18 +12,11 @@
     flex-wrap: wrap;
 
     .pairUsers {
-      display: flex;
-      justify-content: space-between;
-
-      > div:nth-child(1) {
-        margin-left: 25px;
-      }
+      display: grid;
+      column-gap: 15px;
+      grid-template-columns: 1fr 1fr;
 
       > div {
-        margin-right: 25px;
-      }
-
-      > div:only-child {
         width: 100%;
       }
     }
@@ -37,12 +30,7 @@
 
   .users {
     .pairUsers {
-      flex-direction: column;
-      align-items: center;
-
-      > div {
-        width: 100%;
-      }
+      grid-template-columns: 1fr !important;
     }
   }
 }
