@@ -1,0 +1,30 @@
+.content {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 15px;
+
+  .infoData {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px 15px;
+
+    .infoCard {
+      display: flex;
+      flex-direction: column;
+      .title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #999999;
+        margin-bottom: 5px;
+      }
+      .data {
+        font-size: 18px;
+        font-weight: bold;
+        color: #6d6d6d;
+      }
+    }
+  }
+}
