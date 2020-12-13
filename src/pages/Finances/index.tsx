@@ -30,50 +30,48 @@ const Finances: React.FC = () => {
   };
 
   return (
-    <>
-      <MainLayout>
-        <MainCard title="Financeiro" secondaryButtons={[<FaFilter />]}>
-          <div className={styles.content}>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart
-                data={data}
-                margin={{
-                  top: 50,
-                  left: 50,
-                  bottom: 20,
+    <MainLayout>
+      <MainCard title="Financeiro" secondaryButtons={[<FaFilter />]}>
+        <div className={styles.content}>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart
+              data={data}
+              margin={{
+                top: 50,
+                left: 50,
+                bottom: 20,
+              }}
+            >
+              <XAxis
+                dataKey="month"
+                label={{ value: 'Mês', position: 'bottom', offset: 2 }}
+              />
+              <YAxis
+                label={{
+                  value: 'Faturamento (R$)',
+                  position: 'top',
+                  offset: 20,
                 }}
-              >
-                <XAxis
-                  dataKey="month"
-                  label={{ value: 'Mês', position: 'bottom', offset: 2 }}
-                />
-                <YAxis
-                  label={{
-                    value: 'Faturamento (R$)',
-                    position: 'top',
-                    offset: 20,
-                  }}
-                />
-                <Tooltip
-                  formatter={(value) => {
-                    if (typeof value === 'number')
-                      return [parseToBRL(value), 'Faturamento'];
-                    throw new TypeError('Value must be a Number');
-                  }}
-                />
-                <Bar dataKey="income" fill="#6bc06b" />
-              </BarChart>
-            </ResponsiveContainer>
-            <div className={styles.infoData}>
-              <div className={styles.infoCard}>
-                <span className={styles.title}>Média</span>
-                <span className={styles.data}>R$ 5.431,02</span>
-              </div>
+              />
+              <Tooltip
+                formatter={(value) => {
+                  if (typeof value === 'number')
+                    return [parseToBRL(value), 'Faturamento'];
+                  throw new TypeError('Value must be a Number');
+                }}
+              />
+              <Bar dataKey="income" fill="#6bc06b" />
+            </BarChart>
+          </ResponsiveContainer>
+          <div className={styles.infoData}>
+            <div className={styles.infoCard}>
+              <span className={styles.title}>Média</span>
+              <span className={styles.data}>R$ 5.431,02</span>
             </div>
           </div>
-        </MainCard>
-      </MainLayout>
-    </>
+        </div>
+      </MainCard>
+    </MainLayout>
   );
 };
 
