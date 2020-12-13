@@ -23,15 +23,20 @@ main {
 @media (max-width: 690px) {
   .sidebar {
     position: fixed;
+    visibility: hidden;
     top: 0;
     left: -100%;
+    opacity: 0;
     transition: 500ms;
+    z-index: 99;
   }
 
   .sidebar.active {
     position: fixed;
+    visibility: visible;
     top: 0;
     left: 0;
+    opacity: 1;
     transition: 500ms;
     z-index: 99;
   }
