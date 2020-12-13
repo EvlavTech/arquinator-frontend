@@ -10,8 +10,7 @@ function Router(): React.FunctionComponentElement<void> {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
-      </Switch>
-      <Switch>
+        <Route exact path="/login" component={Login} />
         <Route exact path="/financeiro" component={Finances} />
       </Switch>
     </BrowserRouter>
