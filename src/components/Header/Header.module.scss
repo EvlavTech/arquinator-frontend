@@ -20,33 +20,45 @@ $main-text-color: #6d6d6d;
 }
 
 .company_logo_container {
-  margin: 10px 25px;
+  margin: 10px 0px;
+  padding-left: 25px;
+  display: flex;
+  align-items: center;
 }
 
 .company_logo {
   height: 60px;
+  margin: 10px 20px;
 }
 
 .buttons {
+  width: max-content;
   align-self: center;
   display: flex;
   align-items: center;
-  margin: 0 10px;
+  justify-content: flex-end;
+  margin-right: 10px;
 }
 
 .profile {
   display: flex;
   align-items: center;
-  margin: 0 15px;
+  margin-right: 7px;
 }
 
 .avatar {
   width: 40px;
-  margin: 0 10px;
+  margin-right: 8px;
 }
 
 .profile_name {
   color: $main-text-color;
+  display: inline-block;
+  max-width: 15ch;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
   transform: perspective(1px);
 
   @include defaultHover();
@@ -84,4 +96,21 @@ $main-text-color: #6d6d6d;
   color: $main-text-color;
 
   @include defaultHover();
+}
+
+.sidebar_icon {
+  font-size: 28px;
+  color: $main-text-color;
+  display: none;
+
+  @include defaultHover();
+}
+
+@media(max-width: 690px) {
+  .sidebar_icon{
+    display: inline;
+  }
+  .profile_name{
+    display: none;
+  }
 }
