@@ -1,0 +1,57 @@
+.cardUser {
+  display: flex;
+  justify-content: space-between;
+  background: #ffffff;
+  mix-blend-mode: normal;
+  border: 1px solid #ddd0d0;
+  border-radius: 53px;
+  width: 50%;
+  transition: 0.5s ease;
+  cursor: pointer;
+  margin-top: 30px;
+
+  .user {
+    display: flex;
+    flex-direction: row;
+
+    .infoUser {
+      display: flex;
+      flex-direction: column;
+
+      .occupation {
+        color: #02a426;
+      }
+
+      p {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 17px;
+        color: #9f9696;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+    }
+
+    img {
+      border: 1px solid #000000;
+      box-sizing: border-box;
+      border-radius: 50px;
+      height: 80px;
+    }
+  }
+
+  .btnPerfil {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding-right: 15px;
+    color: #02a426;
+  }
+
+  &:hover {
+    transform: scale(1.055);
+    box-shadow: 5px 5px 15px rgba(221, 208, 208, 1);
+  }
+}

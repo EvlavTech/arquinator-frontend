@@ -1,0 +1,36 @@
+.main {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 15px;
+
+  .users {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .pairUsers {
+      display: grid;
+      column-gap: 15px;
+      grid-template-columns: 1fr 1fr;
+
+      > div {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .main {
+    align-items: center;
+  }
+
+  .users {
+    .pairUsers {
+      grid-template-columns: 1fr !important;
+    }
+  }
+}
