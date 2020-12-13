@@ -6,11 +6,9 @@ import styles from './Home.module.scss';
 
 const Home: React.FC = () => {
   return (
-    <>
-      <MainLayout>
-        <h1 className={styles.title}>Home</h1>
-      </MainLayout>
-    </>
+    <MainLayout>
+      <h1 className={styles.title}>Home</h1>
+    </MainLayout>
   );
 };
 

@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
+import { FaFilter } from 'react-icons/fa';
 
 import MainLayout from 'components/MainLayout';
-
-import { RiFilterFill } from 'react-icons/ri';
-
 import CardUser from 'components/CardUser';
+import MainCard from 'components/MainCard';
 import { partition } from '../../utils';
 
-import './styles.scss';
+import styles from './Team.module.scss';
 
 interface IUser {
   username: string;
@@ -16,7 +15,7 @@ interface IUser {
 }
 
 const Home: React.FC = () => {
-  const [team, setTeam] = useState<IUser[]>([
+  const [team] = useState<IUser[]>([
     {
       username: 'Rich Elton',
       fotoUrl:
@@ -35,26 +34,16 @@ const Home: React.FC = () => {
       occupation: 'Estagiário',
     },
   ]);
-  const [teamPartition, setTeamPartition] = useState<Array<IUser[]>>(
-    partition(team, 2),
-  );
+  const [teamPartition] = useState<Array<IUser[]>>(partition(team, 2));
 
   return (
-    <>
-      <MainLayout>
-        <div className="main">
-          <div className="title">
-            <h1>Equipe</h1>
-            <div className="div-icon-filter">
-              <RiFilterFill />
-            </div>
-            <hr />
-          </div>
-
-          <div className="users">
+    <MainLayout>
+      <MainCard title="Equipe" secondaryButtons={[<FaFilter />]}>
+        <div className={styles.main}>
+          <div className={styles.users}>
             {teamPartition.map((array) => {
               return (
-                <div className="pair-users" key={array[0].username}>
+                <div className={styles.pairUsers} key={array[0].username}>
                   <CardUser user={array[0]} />
                   {array.length === 2 ? <CardUser user={array[1]} /> : null}
                 </div>
@@ -62,8 +51,8 @@ const Home: React.FC = () => {
             })}
           </div>
         </div>
-      </MainLayout>
-    </>
+      </MainCard>
+    </MainLayout>
   );
 };
 

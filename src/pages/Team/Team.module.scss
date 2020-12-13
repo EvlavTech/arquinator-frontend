@@ -1,0 +1,48 @@
+.main {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 15px;
+
+  .users {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .pairUsers {
+      display: flex;
+      justify-content: space-between;
+
+      > div:nth-child(1) {
+        margin-left: 25px;
+      }
+
+      > div {
+        margin-right: 25px;
+      }
+
+      > div:only-child {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .main {
+    align-items: center;
+  }
+
+  .users {
+    .pairUsers {
+      flex-direction: column;
+      align-items: center;
+
+      > div {
+        width: 100%;
+      }
+    }
+  }
+}
