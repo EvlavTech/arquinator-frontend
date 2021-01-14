@@ -2,7 +2,8 @@
 
 @mixin sideBarProperties {
   background-color: #fefefe;
-  height: 100vh;
+  min-height: 100%;
+  width: 100%;
   max-width: 260px;
   min-width: 260px;
 }
@@ -25,15 +26,20 @@ main {
 @media (max-width: $width-tablet) {
   .sidebar {
     position: fixed;
+    visibility: hidden;
     top: 0;
     left: -100%;
+    opacity: 0;
     transition: 500ms;
+    z-index: 99;
   }
 
   .sidebar.active {
     position: fixed;
+    visibility: visible;
     top: 0;
     left: 0;
+    opacity: 1;
     transition: 500ms;
     z-index: 99;
   }
