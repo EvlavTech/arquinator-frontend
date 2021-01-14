@@ -1,0 +1,21 @@
+.container {
+  background-color: #E2E2E2;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: max-content;
+  max-height: 50vh;
+  overflow-x: scroll;
+}
+
+.box {
+  height: max-content;
+  width: fit-content;
+}
+
+.task {
+  background-color: blue;
+  height: 100px;
+  width: 225px;
+  margin: 10px 5px;
+}
