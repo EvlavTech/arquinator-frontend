@@ -1,3 +1,5 @@
+@import '../../assets/scss/variables';
+
 @mixin sideBarProperties {
   background-color: #fefefe;
   min-height: 100%;
@@ -20,7 +22,7 @@ main {
   flex: 1;
 }
 
-@media (max-width: 690px) {
+@media (max-width: $width-tablet) {
   .sidebar {
     position: fixed;
     visibility: hidden;
