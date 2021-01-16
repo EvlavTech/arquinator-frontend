@@ -1,13 +1,5 @@
 @import '../../assets/scss/variables';
 
-@mixin sideBarProperties {
-  background-color: #fefefe;
-  min-height: 100%;
-  width: 100%;
-  max-width: 260px;
-  min-width: 260px;
-}
-
 .container {
   display: flex;
   flex-direction: row;
@@ -16,7 +8,9 @@
 }
 
 .sidebar {
-  @include sideBarProperties();
+  background-color: #fefefe;
+  min-height: 100%;
+  width: 260px;
 }
 
 main {

@@ -1,0 +1,49 @@
+@mixin boxWithIcon {
+  display: flex;
+  align-items: center;
+  margin: 7px 0;
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 15px;
+  height: 140px;
+  width: 225px;
+  margin: 10px 0;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 300;
+
+  .title {
+    font-size: 16px;
+    font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #dddddd;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .details {
+    padding: 3px 0;
+    border-bottom: 1px solid #dddddd;
+    .clientName {
+      @include boxWithIcon();
+    }
+    .date {
+      @include boxWithIcon();
+    }
+  }
+
+  .footer {
+    .people {
+      @include boxWithIcon();
+    }
+  }
+}
+
+.icon {
+  color: #6d6d6d;
+  font-size: 16px;
+  margin-right: 5px;
+}

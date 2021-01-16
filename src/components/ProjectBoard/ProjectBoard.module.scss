@@ -1,21 +1,23 @@
 .container {
-  background-color: #E2E2E2;
+  background-color: #e2e2e2;
   display: flex;
   justify-content: space-around;
   width: 100%;
-  height: max-content;
-  max-height: 50vh;
-  overflow-x: scroll;
+  overflow: hidden;
+  height: 100%;
 }
 
-.box {
-  height: max-content;
-  width: fit-content;
+.boxTask {
+  margin: 10px;
+  padding: 10px;
+  .boxContainer {
+    height: 100%;
+    overflow-y: auto;
+  }
 }
 
-.task {
-  background-color: blue;
-  height: 100px;
-  width: 225px;
-  margin: 10px 5px;
+.border {
+  border: 1px solid #c2c2c2;
+  height: 18em;
+  align-self: center;
 }
