@@ -2,17 +2,26 @@ import React, { useState } from 'react';
 import {
   DragDropContext,
   Droppable,
-  Draggable,
   DropResult,
   DraggableLocation,
 } from 'react-beautiful-dnd';
-import faker, { fake } from 'faker';
+import faker from 'faker';
 
 import { TaskModel } from 'models/Task';
 import TaskCard from 'components/TaskCard';
 
 import styles from './ProjectBoard.module.scss';
 
+// @TODO Move this to a util folder or something like that
+/**
+ * Change the position of a element from a list.
+ *
+ * @param list: []
+ * @param startIndex: number
+ * @param endIndex: number
+ *
+ * Return a new list with the element index changed .
+ */
 const reorder = (list: any[], startIndex: number, endIndex: number) => {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
@@ -21,6 +30,17 @@ const reorder = (list: any[], startIndex: number, endIndex: number) => {
   return result;
 };
 
+// @TODO Move this to a util folder or something like that
+/**
+ * Move a Draggable from a Droppable from another
+ *
+ * @param sourceList: any[]
+ * @param destinationList: any[]
+ * @param source: DraggableLocation
+ * @param destination: DraggableLocation
+ *
+ * Return a new list with the element index changed .
+ */
 const move = (
   sourceList: any[],
   destinationList: any[],
@@ -40,6 +60,11 @@ const move = (
   return result;
 };
 
+/**
+ * Temporary function to generate fake TaskModel. IT WILL BE DELETED.
+ *
+ * Return a fake TaskModel.
+ */
 const generateTask = (): TaskModel => {
   return {
     id: faker.random.alphaNumeric(5),
@@ -64,12 +89,24 @@ const ProjectBoard: React.FC = () => {
   ]);
   const [tasksDone, setTasksDone] = useState([generateTask(), generateTask()]);
 
-  const boxSetList: any = {
+  const boxSetList: {
+    [droppableId: string]: {
+      tasks: TaskModel[];
+      setTasks: React.Dispatch<React.SetStateAction<TaskModel[]>>;
+    };
+  } = {
     todo: { tasks: tasksTodo, setTasks: setTasksTodo },
     doing: { tasks: tasksDoing, setTasks: setTasksDoing },
     done: { tasks: tasksDone, setTasks: setTasksDone },
   };
 
+  /**
+   * Function that will be executed when the drag event is over.
+   *
+   * @param result: DropResult
+   *
+   * Reorder the order or Droppable of the taskCards, if necessary.
+   */
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
     if (!destination) {
