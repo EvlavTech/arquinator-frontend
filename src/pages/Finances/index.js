@@ -21,8 +21,8 @@ const data = [
   { month: 'fev/2021', income: 8124 },
 ];
 
-const Finances: React.FC = () => {
-  const parseToBRL = (value: number) => {
+const Finances = () => {
+  const parseToBRL = (value) => {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',

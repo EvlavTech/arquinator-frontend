@@ -1,19 +1,8 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import styles from './MainCard.module.scss';
 
-interface MainCardProps {
-  title: string;
-  primaryButtons?: ReactNode[];
-  secondaryButtons?: ReactNode[];
-}
-
-const MainCard: React.FC<MainCardProps> = ({
-  title,
-  children,
-  primaryButtons,
-  secondaryButtons,
-}) => {
+const MainCard = ({ title, children, primaryButtons, secondaryButtons }) => {
   return (
     <div className={styles.mainCard}>
       <div className={styles.header}>

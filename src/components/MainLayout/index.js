@@ -5,7 +5,7 @@ import SideBar from 'components/Sidebar';
 
 import styles from './MainLayout.module.scss';
 
-const MainLayout: React.FC = ({ children }) => {
+const MainLayout = ({ children }) => {
   const [visibleSidebar, setVisibleSidebar] = useState(false);
 
   const showSidebar = () => setVisibleSidebar(!visibleSidebar);

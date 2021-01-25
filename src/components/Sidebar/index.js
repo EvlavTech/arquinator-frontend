@@ -12,11 +12,7 @@ import logo from 'assets/EVLAV.svg';
 import { Link } from 'react-router-dom';
 import styles from './SideBar.module.scss';
 
-interface SidebarProps {
-  showSidebar(): void;
-}
-
-const Sidebar: React.FC<SidebarProps> = ({ showSidebar }) => {
+const Sidebar = ({ showSidebar }) => {
   return (
     <div className={styles.container}>
       <AiOutlineClose

@@ -8,14 +8,8 @@ import { partition } from '../../utils';
 
 import styles from './Team.module.scss';
 
-interface IUser {
-  username: string;
-  avatar: string;
-  occupation: string;
-}
-
-const Team: React.FC = () => {
-  const [team] = useState<IUser[]>([
+const Team = () => {
+  const [team] = useState([
     {
       username: 'Rich Elton',
       avatar:
@@ -34,7 +28,7 @@ const Team: React.FC = () => {
       occupation: 'Estagiário',
     },
   ]);
-  const [teamPartition] = useState<Array<IUser[]>>(partition(team, 2));
+  const [teamPartition] = useState(partition(team, 2));
 
   return (
     <MainLayout>

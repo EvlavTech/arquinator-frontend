@@ -3,13 +3,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './CardUser.module.scss';
 
-interface IUser {
-  username: string;
-  avatar: string;
-  occupation: string;
-}
-
-const CardUser: React.FC<{ user: IUser }> = ({ user }) => {
+const CardUser = ({ user }) => {
   return (
     <div className={styles.cardUser}>
       <div className={styles.user}>
