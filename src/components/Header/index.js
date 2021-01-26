@@ -37,4 +37,8 @@ const Header = ({ showSidebar }) => (
   </header>
 );
 
+Header.propTypes = {
+  showSidebar: PropTypes.func.isRequired,
+};
+
 export default Header;

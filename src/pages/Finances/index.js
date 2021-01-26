@@ -22,12 +22,11 @@ const data = [
 ];
 
 const Finances = () => {
-  const parseToBRL = (value) => {
-    return new Intl.NumberFormat('pt-BR', {
+  const parseToBRL = (value) =>
+    new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
     }).format(value);
-  };
 
   return (
     <MainLayout>
@@ -55,8 +54,9 @@ const Finances = () => {
               />
               <Tooltip
                 formatter={(value) => {
-                  if (typeof value === 'number')
+                  if (typeof value === 'number') {
                     return [parseToBRL(value), 'Faturamento'];
+                  }
                   throw new TypeError('Value must be a Number');
                 }}
               />

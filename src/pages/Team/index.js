@@ -35,14 +35,12 @@ const Team = () => {
       <MainCard title="Equipe" secondaryButtons={[<FaFilter />]}>
         <div className={styles.main}>
           <div className={styles.users}>
-            {teamPartition.map((array) => {
-              return (
-                <div className={styles.pairUsers} key={array[0].username}>
-                  <CardUser user={array[0]} />
-                  {array.length === 2 ? <CardUser user={array[1]} /> : null}
-                </div>
-              );
-            })}
+            {teamPartition.map((array) => (
+              <div className={styles.pairUsers} key={array[0].username}>
+                <CardUser user={array[0]} />
+                {array.length === 2 ? <CardUser user={array[1]} /> : null}
+              </div>
+            ))}
           </div>
         </div>
       </MainCard>

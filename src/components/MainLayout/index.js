@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Header from 'components/Header';
 import SideBar from 'components/Sidebar';
@@ -25,6 +26,10 @@ const MainLayout = ({ children }) => {
       </main>
     </div>
   );
+};
+
+MainLayout.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default MainLayout;
