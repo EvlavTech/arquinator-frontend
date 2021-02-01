@@ -10,6 +10,7 @@
     "prettier-eslint": "^12.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
+    "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
     "react-router-dom": "^5.2.0",
@@ -49,6 +50,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "faker": "^5.2.0",
     "prettier": "^2.2.1"
   }
 }

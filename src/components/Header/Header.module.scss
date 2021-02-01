@@ -1,4 +1,4 @@
-$main-text-color: #6d6d6d;
+@import '../../assets/scss/variables';
 
 @mixin defaultHover {
   &:hover {
@@ -106,7 +106,7 @@ $main-text-color: #6d6d6d;
   @include defaultHover();
 }
 
-@media(max-width: 690px) {
+@media(max-width: $width-tablet) {
   .sidebar_icon{
     display: inline;
   }

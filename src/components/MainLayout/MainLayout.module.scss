@@ -1,9 +1,4 @@
-@mixin sideBarProperties {
-  background-color: #fefefe;
-  height: 100vh;
-  width: 100%;
-  max-width: 260px;
-}
+@import '../../assets/scss/variables';
 
 .container {
   display: flex;
@@ -13,25 +8,32 @@
 }
 
 .sidebar {
-  @include sideBarProperties();
+  background-color: #fefefe;
+  min-height: 100%;
+  width: 260px;
 }
 
 main {
   flex: 1;
 }
 
-@media (max-width: 690px) {
+@media (max-width: $width-tablet) {
   .sidebar {
     position: fixed;
+    visibility: hidden;
     top: 0;
     left: -100%;
+    opacity: 0;
     transition: 500ms;
+    z-index: 99;
   }
 
   .sidebar.active {
     position: fixed;
+    visibility: visible;
     top: 0;
     left: 0;
+    opacity: 1;
     transition: 500ms;
     z-index: 99;
   }
