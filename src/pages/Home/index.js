@@ -8,20 +8,18 @@ import MainCard from 'components/MainCard';
 import { FaFilter } from 'react-icons/fa';
 import styles from './Home.module.scss';
 
-const Home: React.FC = () => {
-  return (
-    <MainLayout>
-      <MainCard
-        title="Dashboard"
-        primaryButtons={[<RiAddBoxFill />]}
-        secondaryButtons={[<FaFilter />]}
-      >
-        <div className={styles.container}>
-          <ProjectBoard />
-        </div>
-      </MainCard>
-    </MainLayout>
-  );
-};
+const Home = () => (
+  <MainLayout>
+    <MainCard
+      title="Dashboard"
+      primaryButtons={[<RiAddBoxFill />]}
+      secondaryButtons={[<FaFilter />]}
+    >
+      <div className={styles.container}>
+        <ProjectBoard />
+      </div>
+    </MainCard>
+  </MainLayout>
+);
 
 export default Home;

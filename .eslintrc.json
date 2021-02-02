@@ -3,14 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
-  ],
-  "parser": "@typescript-eslint/parser",
+  "extends": ["plugin:react/recommended", "airbnb"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -18,34 +11,16 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "plugins": ["react"],
   "rules": {
-    "prettier/prettier": "error",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "react/prop-types": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-props-no-spreading": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
-    "import/prefer-default-export": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
-    // note you must disable the base rule as it can report incorrect errors
-    // These two rules fix a bug from typescript-eslint
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"]
+    "object-curly-newline": "off",
+    "implicit-arrow-linebreak": "off"
   },
   "settings": {
-    "react": { "version": "detect" },
     "import/resolver": {
-      "typescript": {},
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"],
         "moduleDirectory": ["node_modules", "src/"]
       }
     }

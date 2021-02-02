@@ -8,14 +8,8 @@ import { partition } from '../../utils';
 
 import styles from './Team.module.scss';
 
-interface IUser {
-  username: string;
-  avatar: string;
-  occupation: string;
-}
-
-const Team: React.FC = () => {
-  const [team] = useState<IUser[]>([
+const Team = () => {
+  const [team] = useState([
     {
       username: 'Rich Elton',
       avatar:
@@ -34,21 +28,19 @@ const Team: React.FC = () => {
       occupation: 'Estagiário',
     },
   ]);
-  const [teamPartition] = useState<Array<IUser[]>>(partition(team, 2));
+  const [teamPartition] = useState(partition(team, 2));
 
   return (
     <MainLayout>
       <MainCard title="Equipe" secondaryButtons={[<FaFilter />]}>
         <div className={styles.main}>
           <div className={styles.users}>
-            {teamPartition.map((array) => {
-              return (
-                <div className={styles.pairUsers} key={array[0].username}>
-                  <CardUser user={array[0]} />
-                  {array.length === 2 ? <CardUser user={array[1]} /> : null}
-                </div>
-              );
-            })}
+            {teamPartition.map((array) => (
+              <div className={styles.pairUsers} key={array[0].username}>
+                <CardUser user={array[0]} />
+                {array.length === 2 ? <CardUser user={array[1]} /> : null}
+              </div>
+            ))}
           </div>
         </div>
       </MainCard>

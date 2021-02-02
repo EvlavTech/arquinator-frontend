@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './style.scss';
 import logo from 'assets/EVLAV.svg';
 
-function Login(): React.FunctionComponentElement<void> {
+function Login() {
   // TODO: form submit
   return (
     <div className="background">

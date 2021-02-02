@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import {
-  DragDropContext,
-  Droppable,
-  DropResult,
-  DraggableLocation,
-} from 'react-beautiful-dnd';
-import faker from 'faker';
-
-import { TaskModel } from 'models/Task';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import TaskCard from 'components/TaskCard';
 
 import styles from './ProjectBoard.module.scss';
+
+const fakeCard = (id) => ({
+  id: `${id}`,
+  name: 'Detalhamento Cozinha',
+  projectName: 'Casa Fabricia',
+  endDate: new Date(),
+  responsible: 'Stephane',
+});
 
 // @TODO Move this to a util folder or something like that
 /**
@@ -22,7 +22,7 @@ import styles from './ProjectBoard.module.scss';
  *
  * Return a new list with the element index changed .
  */
-const reorder = (list: any[], startIndex: number, endIndex: number) => {
+const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
@@ -41,60 +41,26 @@ const reorder = (list: any[], startIndex: number, endIndex: number) => {
  *
  * Return a new list with the element index changed .
  */
-const move = (
-  sourceList: any[],
-  destinationList: any[],
-  source: DraggableLocation,
-  destination: DraggableLocation,
-) => {
+const move = (sourceList, destinationList, source, destination) => {
   const sourceClone = Array.from(sourceList);
   const destClone = Array.from(destinationList);
   const [removed] = sourceClone.splice(source.index, 1);
 
   destClone.splice(destination.index, 0, removed);
 
-  const result: any = {};
+  const result = {};
   result[source.droppableId] = sourceClone;
   result[destination.droppableId] = destClone;
 
   return result;
 };
 
-/**
- * Temporary function to generate fake TaskModel. IT WILL BE DELETED.
- *
- * Return a fake TaskModel.
- */
-const generateTask = (): TaskModel => {
-  return {
-    id: faker.random.alphaNumeric(5),
-    name: faker.lorem.words(2),
-    description: faker.lorem.paragraph(1),
-    clientId: faker.random.number(),
-    startDate: faker.date.recent(),
-    endDate: faker.date.future(),
-    projectName: `Projeto ${faker.name.firstName()}`,
-    responsible: faker.name.findName(),
-  };
-};
+const ProjectBoard = () => {
+  const [tasksTodo, setTasksTodo] = useState([fakeCard(1), fakeCard(2)]);
+  const [tasksDoing, setTasksDoing] = useState([fakeCard(3), fakeCard(4)]);
+  const [tasksDone, setTasksDone] = useState([fakeCard(5), fakeCard(6)]);
 
-const ProjectBoard: React.FC = () => {
-  const [tasksTodo, setTasksTodo] = useState<TaskModel[]>([
-    generateTask(),
-    generateTask(),
-  ]);
-  const [tasksDoing, setTasksDoing] = useState([
-    generateTask(),
-    generateTask(),
-  ]);
-  const [tasksDone, setTasksDone] = useState([generateTask(), generateTask()]);
-
-  const boxSetList: {
-    [droppableId: string]: {
-      tasks: TaskModel[];
-      setTasks: React.Dispatch<React.SetStateAction<TaskModel[]>>;
-    };
-  } = {
+  const boxSetList = {
     todo: { tasks: tasksTodo, setTasks: setTasksTodo },
     doing: { tasks: tasksDoing, setTasks: setTasksDoing },
     done: { tasks: tasksDone, setTasks: setTasksDone },
@@ -107,7 +73,7 @@ const ProjectBoard: React.FC = () => {
    *
    * Reorder the order or Droppable of the taskCards, if necessary.
    */
-  const onDragEnd = (result: DropResult) => {
+  const onDragEnd = (result) => {
     const { source, destination } = result;
     if (!destination) {
       return;
@@ -144,7 +110,7 @@ const ProjectBoard: React.FC = () => {
     <div className={styles.container}>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="todo">
-          {(provided, snapshot) => (
+          {(provided) => (
             <div
               className={styles.boxTask}
               {...provided.droppableProps}
@@ -161,7 +127,7 @@ const ProjectBoard: React.FC = () => {
         </Droppable>
         <hr className={styles.border} />
         <Droppable droppableId="doing">
-          {(provided, snapshot) => (
+          {(provided) => (
             <div
               className={styles.boxTask}
               {...provided.droppableProps}
@@ -178,7 +144,7 @@ const ProjectBoard: React.FC = () => {
         </Droppable>
         <hr className={styles.border} />
         <Droppable droppableId="done">
-          {(provided, snapshot) => (
+          {(provided) => (
             <div
               className={styles.boxTask}
               {...provided.droppableProps}

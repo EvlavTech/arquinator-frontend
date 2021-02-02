@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Team from './pages/Team';
 import Finances from './pages/Finances';
 
-function Router(): React.FunctionComponentElement<void> {
+function Router() {
   return (
     <BrowserRouter>
       <Switch>

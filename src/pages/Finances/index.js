@@ -21,13 +21,12 @@ const data = [
   { month: 'fev/2021', income: 8124 },
 ];
 
-const Finances: React.FC = () => {
-  const parseToBRL = (value: number) => {
-    return new Intl.NumberFormat('pt-BR', {
+const Finances = () => {
+  const parseToBRL = (value) =>
+    new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
     }).format(value);
-  };
 
   return (
     <MainLayout>
@@ -55,8 +54,9 @@ const Finances: React.FC = () => {
               />
               <Tooltip
                 formatter={(value) => {
-                  if (typeof value === 'number')
+                  if (typeof value === 'number') {
                     return [parseToBRL(value), 'Faturamento'];
+                  }
                   throw new TypeError('Value must be a Number');
                 }}
               />

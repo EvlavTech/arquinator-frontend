@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Header from 'components/Header';
 import SideBar from 'components/Sidebar';
 
 import styles from './MainLayout.module.scss';
 
-const MainLayout: React.FC = ({ children }) => {
+const MainLayout = ({ children }) => {
   const [visibleSidebar, setVisibleSidebar] = useState(false);
 
   const showSidebar = () => setVisibleSidebar(!visibleSidebar);
@@ -25,6 +26,10 @@ const MainLayout: React.FC = ({ children }) => {
       </main>
     </div>
   );
+};
+
+MainLayout.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default MainLayout;

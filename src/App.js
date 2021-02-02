@@ -3,7 +3,7 @@ import Router from './Router';
 
 import './global.scss';
 
-function App(): React.FunctionComponentElement<void> {
+function App() {
   return <Router />;
 }
 
