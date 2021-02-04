@@ -1,0 +1,102 @@
+.project {
+  border-top: 1px solid rgba($color: #000, $alpha: 0.1);
+  padding-bottom: 0.5%;
+  color: #6d6d6d;
+
+  .projectInformation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .leftIcons {
+      display: flex;
+      align-items: center;
+      * {
+        margin-left: 0.5vw;
+      }
+    }
+  }
+
+  li {
+    margin-left: 3%;
+  }
+}
+
+.liStyle {
+  list-style: none;
+  .liInformation {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    .leftIcons {
+      display: flex;
+      align-items: center;
+
+      p {
+        margin-left: 2%;
+      }
+
+      svg {
+        margin-left: 0.1vw;
+        color: #6d6d6d;
+      }
+    }
+  }
+}
+
+.leftIcons {
+  min-width: 45vw;
+  svg {
+    min-width: 16px;
+    min-height: 16px;
+  }
+}
+
+.rigthIcons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #6d6d6d;
+  min-width: 56px;
+  margin-right: 1%;
+
+  svg {
+    min-width: 16px;
+    transition: linear 0.5s;
+  }
+
+  svg:hover {
+    color: #3b7b20;
+    cursor: pointer;
+  }
+
+  * {
+    margin: 7px;
+  }
+}
+
+.completedSvg {
+  color: #3b7b20 !important;
+}
+
+.completedP {
+  text-decoration: line-through;
+  text-decoration-color: #6d6d6d;
+}
+
+.progress {
+  width: 100px;
+}
+
+@media (max-width: 900px) {
+  .project {
+    .leftIcons {
+      min-width: 30vw !important;
+    }
+
+    li {
+      margin-left: 4%;
+    }
+  }
+}

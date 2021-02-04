@@ -5,15 +5,17 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Team from './pages/Team';
 import Finances from './pages/Finances';
+import Projects from './pages/Projects';
 
 function Router() {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/financeiro" component={Finances} />
-        <Route exact path="/equipe" component={Team} />
+        <Route path="/login" component={Login} />
+        <Route path="/financeiro" component={Finances} />
+        <Route path="/equipe" component={Team} />
+        <Route path="/projetos" component={Projects} />
       </Switch>
     </BrowserRouter>
   );
