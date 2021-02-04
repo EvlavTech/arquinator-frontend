@@ -17,7 +17,7 @@ import testJson from './project-test';
 
 import style from './Projects.module.scss';
 
-const Projects = () => {
+export default function Projects() {
   const mediaSize = window.innerWidth;
 
   function truncate(text) {
@@ -32,8 +32,6 @@ const Projects = () => {
     const children = [...component.current.children];
 
     if (children !== undefined) {
-      // eslint-disable-next-line no-console
-      console.log(children);
       children.forEach((element) => {
         const liElementState = element.getAttribute('hidden');
         if (liElementState === null) {
@@ -56,6 +54,7 @@ const Projects = () => {
           <div className={style.leftIcons}>
             <img src={dropDown} alt="tree" />
             <FaRegCheckCircle
+              size={22}
               className={
                 projectComponent.done ? style.completedSvg : style.none
               }
@@ -68,9 +67,11 @@ const Projects = () => {
           </div>
 
           <div className={style.rigthIcons}>
-            <FaCheck />
-            {haveTasks ? <FaEye onClick={() => hideComponent(liRef)} /> : null}
-            <FaTrash />
+            <FaCheck size={22} />
+            {haveTasks ? (
+              <FaEye size={22} onClick={() => hideComponent(liRef)} />
+            ) : null}
+            <FaTrash size={22} />
           </div>
         </div>
         {haveTasks ? (
@@ -83,13 +84,13 @@ const Projects = () => {
   }
 
   function generateProjectView() {
-    const projectTsx = testJson.projects.map((projectComponent) => {
+    const projectJsx = testJson.projects.map((projectComponent) => {
       const projectRef = React.createRef();
       return (
         <ul className={style.project} ref={projectRef}>
           <div className={style.projectInformation}>
             <div className={style.leftIcons}>
-              <FaFolder />
+              <FaFolder size={22} />
               <p>{truncate(projectComponent.name)}</p>
             </div>
 
@@ -106,9 +107,9 @@ const Projects = () => {
             </div>
 
             <div className={style.rigthIcons}>
-              <FaCheck />
-              <FaEye onClick={() => hideComponent(projectRef)} />
-              <FaTrash />
+              <FaCheck size={22} />
+              <FaEye size={22} onClick={() => hideComponent(projectRef)} />
+              <FaTrash size={22} />
             </div>
           </div>
           {projectComponent.tasks.map((e) => generateComponent(e))}
@@ -116,7 +117,7 @@ const Projects = () => {
       );
     });
 
-    return projectTsx;
+    return projectJsx;
   }
 
   return (
@@ -124,6 +125,4 @@ const Projects = () => {
       <MainCard title="Projetos">{generateProjectView()}</MainCard>
     </MainLayout>
   );
-};
-
-export default Projects;
+}
