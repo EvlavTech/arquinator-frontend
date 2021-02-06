@@ -52,5 +52,40 @@
       ],
       "average": 3300
     }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Detalhamento Marcenaria",
+      "end_date": "2021-01-15T03:00:00.000Z",
+      "project": {
+        "name": "Casa Telio e Juliana"
+      },
+      "responsible": {
+        "name": "Stephane"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Detalhamento Marcenaria",
+      "end_date": "2021-01-15T03:00:00.000Z",
+      "project": {
+        "name": "Casa Telio e Juliana"
+      },
+      "responsible": {
+        "name": "Stephane"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Detalhamento Marcenaria",
+      "end_date": "2021-01-15T03:00:00.000Z",
+      "project": {
+        "name": "Casa Telio e Juliana"
+      },
+      "responsible": {
+        "name": "Stephane"
+      }
+    }
   ]
 }

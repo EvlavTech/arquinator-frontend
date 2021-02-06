@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import TaskCard from 'components/TaskCard';
-import { getAllTasks } from 'services/TaskService';
+import TaskService from 'services/Tasks/TaskService';
 
 import styles from './ProjectBoard.module.scss';
 
@@ -54,7 +54,7 @@ const ProjectBoard = () => {
   const [tasksDone, setTasksDone] = useState([]);
 
   useEffect(async () => {
-    const tasks = await getAllTasks();
+    const tasks = await TaskService.getAll();
     setTasksTodo(tasks);
   }, []);
 
