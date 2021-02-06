@@ -12,8 +12,8 @@ const Home = () => (
   <MainLayout>
     <MainCard
       title="Dashboard"
-      primaryButtons={[<RiAddBoxFill />]}
-      secondaryButtons={[<FaFilter />]}
+      primaryButtons={[<RiAddBoxFill key="1" />]}
+      secondaryButtons={[<FaFilter key="1" />]}
     >
       <div className={styles.container}>
         <ProjectBoard />
