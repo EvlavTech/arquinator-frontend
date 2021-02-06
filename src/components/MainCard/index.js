@@ -10,12 +10,16 @@ const MainCard = ({ title, primaryButtons, secondaryButtons, children }) => (
       <div className={styles.buttons}>
         <div className={styles.primaryButtonsCard}>
           {primaryButtons?.map((button) => (
-            <div className={styles.primaryButton}>{button}</div>
+            <div key={button.key} className={styles.primaryButton}>
+              {button}
+            </div>
           ))}
         </div>
         <div className={styles.secondaryButtonsCard}>
           {secondaryButtons?.map((button) => (
-            <div className={styles.secondaryButton}>{button}</div>
+            <div key={button.key} className={styles.secondaryButton}>
+              {button}
+            </div>
           ))}
         </div>
       </div>
