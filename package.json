@@ -25,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "api": "json-server --watch mock/db.json"
   },
   "eslintConfig": {
     "extends": [
@@ -54,6 +55,7 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "faker": "^5.2.0",
+    "json-server": "^0.16.3",
     "prettier": "^2.2.1"
   }
 }
