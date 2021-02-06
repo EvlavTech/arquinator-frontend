@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   BarChart,
   Bar,
@@ -12,16 +12,20 @@ import { FaFilter } from 'react-icons/fa';
 import MainLayout from 'components/MainLayout';
 import MainCard from 'components/MainCard';
 
+import FinanceService from 'services/Finances/FinanceService';
 import styles from './Finances.module.scss';
 
-const data = [
-  { month: 'nov/2020', income: 9231.02 },
-  { month: 'dez/2020', income: 4532 },
-  { month: 'jan/2021', income: 4731 },
-  { month: 'fev/2021', income: 8124 },
-];
-
 const Finances = () => {
+  const [data, setData] = useState([]);
+  const [avg, setAverage] = useState();
+
+  useEffect(async () => {
+    const response = await FinanceService.getAll(1);
+    const { finances, average } = response.data;
+    setData(finances);
+    setAverage(average);
+  }, []);
+
   const parseToBRL = (value) =>
     new Intl.NumberFormat('pt-BR', {
       style: 'currency',
@@ -42,7 +46,7 @@ const Finances = () => {
               }}
             >
               <XAxis
-                dataKey="month"
+                dataKey="date"
                 label={{ value: 'Mês', position: 'bottom', offset: 2 }}
               />
               <YAxis
@@ -60,13 +64,13 @@ const Finances = () => {
                   throw new TypeError('Value must be a Number');
                 }}
               />
-              <Bar dataKey="income" fill="#6bc06b" />
+              <Bar dataKey="total_amount" fill="#6bc06b" />
             </BarChart>
           </ResponsiveContainer>
           <div className={styles.infoData}>
             <div className={styles.infoCard}>
               <span className={styles.title}>Média</span>
-              <span className={styles.data}>R$ 5.431,02</span>
+              <span className={styles.data}>{`R$ ${avg}`}</span>
             </div>
           </div>
         </div>
