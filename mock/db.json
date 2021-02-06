@@ -1,0 +1,56 @@
+{
+  "projects_by_company_id": [
+    {
+      "id": 1,
+      "finances": [
+        {
+          "total_amount": 7500,
+          "date": "Jan/2020"
+        },
+        {
+          "total_amount": 1500,
+          "date": "Fev/2020"
+        },
+        {
+          "total_amount": 4500,
+          "date": "Mar/2020"
+        },
+        {
+          "total_amount": 1500,
+          "date": "Mai/2020"
+        },
+        {
+          "total_amount": 5500,
+          "date": "Jul/2020"
+        }
+      ],
+      "average": 4100
+    },
+    {
+      "id": 2,
+      "finances": [
+        {
+          "total_amount": 7500,
+          "date": "Jan/2020"
+        },
+        {
+          "total_amount": 1500,
+          "date": "Fev/2020"
+        },
+        {
+          "total_amount": 4500,
+          "date": "Mar/2020"
+        },
+        {
+          "total_amount": 1500,
+          "date": "Mai/2020"
+        },
+        {
+          "total_amount": 1500,
+          "date": "Jul/2020"
+        }
+      ],
+      "average": 3300
+    }
+  ]
+}
