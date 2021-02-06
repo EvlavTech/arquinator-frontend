@@ -1,16 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import TaskCard from 'components/TaskCard';
+import { getAllTasks } from 'services/TaskService';
 
 import styles from './ProjectBoard.module.scss';
-
-const fakeCard = (id) => ({
-  id: `${id}`,
-  name: 'Detalhamento Cozinha',
-  projectName: 'Casa Fabricia',
-  endDate: new Date(),
-  responsible: 'Stephane',
-});
 
 // @TODO Move this to a util folder or something like that
 /**
@@ -56,9 +49,14 @@ const move = (sourceList, destinationList, source, destination) => {
 };
 
 const ProjectBoard = () => {
-  const [tasksTodo, setTasksTodo] = useState([fakeCard(1), fakeCard(2)]);
-  const [tasksDoing, setTasksDoing] = useState([fakeCard(3), fakeCard(4)]);
-  const [tasksDone, setTasksDone] = useState([fakeCard(5), fakeCard(6)]);
+  const [tasksTodo, setTasksTodo] = useState([]);
+  const [tasksDoing, setTasksDoing] = useState([]);
+  const [tasksDone, setTasksDone] = useState([]);
+
+  useEffect(async () => {
+    const tasks = await getAllTasks();
+    setTasksTodo(tasks);
+  }, []);
 
   const boxSetList = {
     todo: { tasks: tasksTodo, setTasks: setTasksTodo },
@@ -118,10 +116,12 @@ const ProjectBoard = () => {
             >
               <span className={styles.title}>A fazer</span>
               <div className={styles.boxContainer}>
-                {tasksTodo.map((task, index) => (
-                  <TaskCard task={task} index={index} />
-                ))}
+                {tasksTodo &&
+                  tasksTodo.map((task, index) => (
+                    <TaskCard key={task?.id} task={task} index={index} />
+                  ))}
               </div>
+              {provided.placeholder}
             </div>
           )}
         </Droppable>
@@ -136,9 +136,10 @@ const ProjectBoard = () => {
               <span className={styles.title}>Em execução</span>
               <div className={styles.boxContainer}>
                 {tasksDoing.map((task, index) => (
-                  <TaskCard task={task} index={index} />
+                  <TaskCard key={task?.id} task={task} index={index} />
                 ))}
               </div>
+              {provided.placeholder}
             </div>
           )}
         </Droppable>
@@ -153,9 +154,10 @@ const ProjectBoard = () => {
               <span className={styles.title}>Feito</span>
               <div className={styles.boxContainer}>
                 {tasksDone.map((task, index) => (
-                  <TaskCard task={task} index={index} />
+                  <TaskCard key={task?.id} task={task} index={index} />
                 ))}
               </div>
+              {provided.placeholder}
             </div>
           )}
         </Droppable>
