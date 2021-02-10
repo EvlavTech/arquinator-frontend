@@ -10,9 +10,17 @@
 .boxTask {
   margin: 10px;
   padding: 10px;
+  text-align: center;
   .boxContainer {
     height: 100%;
+    min-width: 225px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     overflow-y: auto;
+  }
+
+  .boxContainer::-webkit-scrollbar {
+    display: none;
   }
 }
 
