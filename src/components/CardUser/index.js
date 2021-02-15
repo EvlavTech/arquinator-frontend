@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import NotFoundIcon from '../../assets/not_found_icons.png';
 
 import styles from './CardUser.module.scss';
 
@@ -9,11 +10,8 @@ const CardUser = ({ user }) => (
     <div className={styles.user}>
       <div className={styles.picture}>
         <img
-          src={
-            user.avatar_url === undefined
-              ? 'https://avatars1.githubusercontent.com/u/25726888?s=460&u=8252555dd09e9b823676ff8e9585ca1b69ad3de6&v=4'
-              : user.avatar_url
-          }
+          className={styles.icon_avatar}
+          src={user.avatar_url === undefined ? NotFoundIcon : user.avatar_url}
           alt="Profile"
         />
       </div>

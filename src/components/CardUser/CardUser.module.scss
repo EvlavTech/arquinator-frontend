@@ -33,13 +33,6 @@
         margin-left: 10px;
       }
     }
-
-    img {
-      border: 1px solid #000000;
-      box-sizing: border-box;
-      border-radius: 50px;
-      height: 80px;
-    }
   }
 
   .btnPerfil {
@@ -53,5 +46,12 @@
   &:hover {
     transform: scale(1.055);
     box-shadow: 5px 5px 15px rgba(221, 208, 208, 1);
+  }
+
+  .icon_avatar {
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50px;
+    height: 80px;
   }
 }

@@ -87,5 +87,23 @@
         "name": "Stephane"
       }
     }
+  ],
+  "users": [
+    {
+      "id": 2,
+      "name": "Rick 1",
+      "email": "rich1@elton.com",
+      "company_id": 1,
+      "createdAt": "2021-02-12T20:21:17.803Z",
+      "updatedAt": "2021-02-12T21:21:56.763Z"
+    },
+    {
+      "id": 3,
+      "name": "Lucas",
+      "email": "lucas@estagio.com",
+      "company_id": 1,
+      "createdAt": "2021-02-15T19:20:54.542Z",
+      "updatedAt": "2021-02-15T19:22:44.566Z"
+    }
   ]
 }

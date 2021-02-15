@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { FaFilter } from 'react-icons/fa';
-
 import MainLayout from 'components/MainLayout';
 import CardUser from 'components/CardUser';
 import MainCard from 'components/MainCard';
