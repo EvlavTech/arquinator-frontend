@@ -4,7 +4,6 @@ import { FaFilter } from 'react-icons/fa';
 import MainLayout from 'components/MainLayout';
 import CardUser from 'components/CardUser';
 import MainCard from 'components/MainCard';
-import { partition } from '../../utils';
 
 import styles from './Team.module.scss';
 
@@ -28,18 +27,14 @@ const Team = () => {
       occupation: 'Estagiário',
     },
   ]);
-  const [teamPartition] = useState(partition(team, 2));
 
   return (
     <MainLayout>
       <MainCard title="Equipe" secondaryButtons={[<FaFilter />]}>
         <div className={styles.main}>
           <div className={styles.users}>
-            {teamPartition.map((array) => (
-              <div className={styles.pairUsers} key={array[0].username}>
-                <CardUser user={array[0]} />
-                {array.length === 2 ? <CardUser user={array[1]} /> : null}
-              </div>
+            {team.map((user) => (
+              <CardUser user={user} />
             ))}
           </div>
         </div>

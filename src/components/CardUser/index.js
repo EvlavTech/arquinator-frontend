@@ -15,9 +15,9 @@ const CardUser = ({ user }) => (
         <p className={styles.occupation}>{user.occupation}</p>
       </div>
     </div>
-    <Link className={styles.btnPerfil} to="/">
-      Ver perfil
-    </Link>
+    <div className={styles.btnPerfil}>
+      <Link to="/">Ver perfil</Link>
+    </div>
   </div>
 );
 

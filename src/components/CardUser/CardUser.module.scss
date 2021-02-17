@@ -3,20 +3,24 @@
   justify-content: space-between;
   background: #ffffff;
   mix-blend-mode: normal;
-  border: 1px solid #ddd0d0;
-  border-radius: 53px;
-  width: 50%;
+  border: 1px solid #e9e9e9;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 425px;
   transition: 0.5s ease;
   cursor: pointer;
-  margin-top: 30px;
 
   .user {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    word-break: break-word;
 
     .infoUser {
       display: flex;
       flex-direction: column;
+      margin-left: 5px;
 
       .occupation {
         color: #02a426;
@@ -30,28 +34,44 @@
         line-height: 17px;
         color: #9f9696;
         margin-top: 10px;
-        margin-left: 10px;
       }
     }
 
-    img {
-      border: 1px solid #000000;
-      box-sizing: border-box;
-      border-radius: 50px;
-      height: 80px;
+    .picture {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 5px;
+      img {
+        box-sizing: border-box;
+        border-radius: 50px;
+        height: 70px;
+      }
     }
   }
 
   .btnPerfil {
     display: flex;
+    justify-content: center;
     align-items: center;
-    text-decoration: none;
-    padding-right: 15px;
-    color: #02a426;
+    margin: 0 10px;
+    word-break: keep-all;
+    overflow: visible;
+    > a {
+      margin: auto;
+      text-decoration: none;
+      color: #02a426;
+    }
   }
 
   &:hover {
     transform: scale(1.055);
     box-shadow: 5px 5px 15px rgba(221, 208, 208, 1);
+  }
+}
+
+@media (max-width: 375px) {
+  .cardUser .btnPerfil {
+    display: none;
   }
 }

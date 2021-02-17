@@ -3,34 +3,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10px 15px;
+  margin: 20px 10px;
 
   .users {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    .pairUsers {
-      display: grid;
-      column-gap: 15px;
-      grid-template-columns: 1fr 1fr;
-
-      > div {
-        width: 100%;
-      }
-    }
-  }
-}
-
-@media (max-width: 900px) {
-  .main {
+    display: grid;
+    justify-items: center;
     align-items: center;
-  }
-
-  .users {
-    .pairUsers {
-      grid-template-columns: 1fr !important;
-    }
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    column-gap: 15px;
+    row-gap: 15px;
   }
 }
