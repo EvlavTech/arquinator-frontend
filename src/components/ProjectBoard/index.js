@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+
 import TaskCard from 'components/TaskCard';
 import TaskService from 'services/Tasks/TaskService';
 

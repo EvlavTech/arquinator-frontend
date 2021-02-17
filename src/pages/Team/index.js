@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaFilter } from 'react-icons/fa';
 
 import MainLayout from 'components/MainLayout';
 import CardUser from 'components/CardUser';
 import MainCard from 'components/MainCard';
+import TeamService from 'services/Team/TeamService';
 
 import styles from './Team.module.scss';
 
 const Team = () => {
-  const [team] = useState([
+  const [team, setTeam] = useState([
     {
       username: 'Rich Elton',
       avatar:
@@ -27,6 +28,11 @@ const Team = () => {
       occupation: 'Estagiário',
     },
   ]);
+
+  useEffect(async () => {
+    const teamResponse = await TeamService.getAll();
+    setTeam(teamResponse);
+  }, []);
 
   return (
     <MainLayout>
