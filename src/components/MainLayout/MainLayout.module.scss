@@ -19,6 +19,7 @@ main {
 
 @media (max-width: $width-tablet) {
   .sidebar {
+    height: 100%;
     position: fixed;
     visibility: hidden;
     top: 0;
