@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import NotFoundIcon from '../../assets/not_found_icons.png';
 
 import styles from './CardUser.module.scss';
 
@@ -8,11 +9,15 @@ const CardUser = ({ user }) => (
   <div className={styles.cardUser}>
     <div className={styles.user}>
       <div className={styles.picture}>
-        <img src={user.avatar} alt="Profile" />
+        <img
+          className={styles.icon_avatar}
+          src={user.avatar_url === undefined ? NotFoundIcon : user.avatar_url}
+          alt="Profile"
+        />
       </div>
       <div className={styles.infoUser}>
-        <p>{user.username}</p>
-        <p className={styles.occupation}>{user.occupation}</p>
+        <p>{user.name}</p>
+        <p className={styles.email}>{user.email}</p>
       </div>
     </div>
     <Link className={styles.btnPerfil} to="/">
@@ -23,9 +28,9 @@ const CardUser = ({ user }) => (
 
 CardUser.propTypes = {
   user: PropTypes.exact({
-    username: PropTypes.string,
-    occupation: PropTypes.string,
-    avatar: PropTypes.string,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    avatar_url: PropTypes.string,
   }).isRequired,
 };
 
